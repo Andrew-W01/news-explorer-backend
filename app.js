@@ -22,7 +22,6 @@ app.use(helmet());
 
 app.use(limiter);
 
-// JSON parsing middleware
 app.use(express.json());
 
 app.use(cors());
@@ -35,10 +34,8 @@ app.get("/crash-test", () => {
 
 app.use(requestLogger);
 
-// Main router
 app.use("/", mainRouter);
 
-// Error handing middleware
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
