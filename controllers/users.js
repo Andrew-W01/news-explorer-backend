@@ -5,12 +5,13 @@ const User = require("../models/user");
 
 const { SUCCESSFUL_REQUEST } = require("../utils/status");
 
-const JWT_SECRET = process.env.JWT_SECRET || "jwt-secret";
+// const JWT_SECRET = process.env.JWT_SECRET || "jwt-secret";
 
 const { BadRequestError } = require("../utils/BadRequestError");
 const { NotFoundError } = require("../utils/NotFoundError");
 const { UnauthorizedError } = require("../utils/UnauthorizedError");
 const { ConflictError } = require("../utils/ConflictError");
+const { JWT_SECRET } = require("../utils/config");
 
 const getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
