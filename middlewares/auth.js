@@ -9,7 +9,7 @@ const auth = (req, res, next) => {
     return next(new UnauthorizedError("Unathorized action"));
   }
 
-  const token = authorization.replace("Bearer", "");
+  const token = authorization.replace("Bearer ", "");
   let payload;
 
   try {
